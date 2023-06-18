@@ -48,6 +48,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <h1 className="text-4xl font-bold">Clinical Trials AI Assistant</h1>
+        <input type="checkbox" class="toggle" checked />
       </header>
       <main className="App-main">
         <div className="Chat-box">
