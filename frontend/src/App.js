@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { generateResponse } from "./Utils/actions";
+import PieChart from "./components/PieChart";
 
 const App = () => {
   const [messages, setMessages] = useState([]);
@@ -49,6 +50,7 @@ const App = () => {
           />
           <button type="submit">Send</button>
         </form>
+        <PieChart />
       </main>
     </div>
   );
