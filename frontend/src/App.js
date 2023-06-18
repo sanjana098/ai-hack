@@ -20,7 +20,7 @@ const App = () => {
     };
 
     setMessages((msgs) => [...msgs, userMessage]);
-
+    setCurrentMessage("");
     const data = { message: currentMessage };
 
     setLoading(true);
@@ -37,7 +37,6 @@ const App = () => {
       };
 
       setMessages((msgs) => [...msgs, newMessage]);
-      setCurrentMessage("");
     } catch (error) {
       console.error(error);
     } finally {
@@ -77,7 +76,7 @@ const App = () => {
             {loading ? "Loading..." : "Send"}
           </button>
         </form>
-        <PieChart />
+        {/* <PieChart /> */}
       </main>
     </div>
   );
