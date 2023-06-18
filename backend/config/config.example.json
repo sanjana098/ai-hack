@@ -1,6 +1,6 @@
 
 {
-    "OPENAI_API_KEY": "", // TODO
+    "OPENAI_API_KEY": "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", // TODO
     "MINDSDB_EMAIL": "sanjana_gajendran@berkeley.edu",
     "MINDSDB_PASSWORD": "Hithere22!"
 }

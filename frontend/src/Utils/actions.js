@@ -1,4 +1,4 @@
-const API_URL = "http://10.142.42.247:5000";
+const API_URL = "http://127.0.0.1:5000";
 
 export const mainRoute = () => {
   return fetch(`${API_URL}/`)

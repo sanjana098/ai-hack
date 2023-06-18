@@ -47,7 +47,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="text-4xl font-bold">Clinical Trials AI Assistant</h1>
+        <h1 className="text-4xl font-bold">Trial Sage</h1>
       </header>
       <main className="App-main">
         <div className="Chat-box">
