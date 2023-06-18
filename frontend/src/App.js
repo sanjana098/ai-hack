@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [messages, setMessages] = useState([]);
+  const [currentMessage, setCurrentMessage] = useState("");
+
+  const sendMessage = (event) => {
+    event.preventDefault();
+
+    if (currentMessage.trim().length === 0) return;
+
+    // API Call to OpenAI would go here.
+
+    const newMessage = {
+      id: messages.length,
+      text: currentMessage,
+      user: "User",
+    };
+
+    setMessages([...messages, newMessage]);
+
+    setCurrentMessage("");
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Clinical Trials AI Assistant</h1>
       </header>
+      <main className="App-main">
+        <div className="Chat-box">
+          {messages.map((message) => (
+            <div key={message.id} className={message.user}>
+              <p>{message.text}</p>
+            </div>
+          ))}
+        </div>
+        <form className="Chat-input" onSubmit={sendMessage}>
+          <input
+            type="text"
+            value={currentMessage}
+            onChange={(event) => setCurrentMessage(event.target.value)}
+            placeholder="Type your question..."
+          />
+          <button type="submit">Send</button>
+        </form>
+      </main>
     </div>
   );
-}
+};
 
 export default App;
