@@ -28,7 +28,7 @@ def generateResponse():
         messages=[
             {
                 "role": "system",
-                "content": "You are a killer assistant trained by OpenAI",
+                "content": "You are a clinical trials assistant trained by OpenAI",
             },
             {"role": "user", "content": data["message"]},
         ],
