@@ -7,7 +7,7 @@ from langchain.llms import OpenAI
 app = Flask(__name__)
 CORS(app)
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = ""
 llm = OpenAI(openai_api_key=OPENAI_API_KEY)
 MODEL = "gpt-4-0613"
 
