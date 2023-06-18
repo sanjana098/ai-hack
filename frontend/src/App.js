@@ -28,7 +28,7 @@ const App = () => {
     try {
       const response = await generateResponse(data);
       console.log(response);
-      const aiMessage = response.message.choices[0].message.content;
+      const aiMessage = response.message;
 
       const newMessage = {
         id: messages.length + 1,
