@@ -7,7 +7,7 @@ import openai
 app = Flask(__name__)
 CORS(app)
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = ""
 openai.api_key = OPENAI_API_KEY
 MODEL = "gpt-4-0613"
 
