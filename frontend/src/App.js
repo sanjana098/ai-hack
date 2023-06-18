@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import { generateResponse } from "./Utils/actions";
 
 const App = () => {
   const [messages, setMessages] = useState([]);
@@ -10,32 +11,29 @@ const App = () => {
 
     if (currentMessage.trim().length === 0) return;
 
-    // API Call to API endpoint would go here.
-    fetch("http://127.0.0.1:5000/api/response", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(currentMessage)}).then(response => response.json()).then(data => console.log(data))
+    const data = { message: currentMessage };
 
-    const newMessage = {
-      id: messages.length,
-      text: currentMessage,
-      user: "User",
-    };
+    generateResponse(data)
+      .then((response) => {
+        const newMessage = {
+          id: messages.length,
+          text: response.response,
+          user: "AI",
+        };
 
-    setMessages([...messages, newMessage]);
-
-    setCurrentMessage("");
+        setMessages([...messages, newMessage]);
+        setCurrentMessage("");
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
-    <div className="App h-screen">
+    <div className="App">
       <header className="App-header">
-        <h1 class="text-2xl">Clinical Trials AI Assistant</h1>
+        <h1>Clinical Trials AI Assistant</h1>
       </header>
       <main className="App-main">
-        {/* <div className="Chat-box">
+        <div className="Chat-box">
           {messages.map((message) => (
             <div key={message.id} className={message.user}>
               <p>{message.text}</p>
@@ -50,19 +48,7 @@ const App = () => {
             placeholder="Type your question..."
           />
           <button type="submit">Send</button>
-        </form> */}
-        <div className="chat-box">
-          <form className="chat-input" onSubmit={sendMessage}>
-            <input
-
-              type="text"
-              value={currentMessage}
-              onChange={(event) => setCurrentMessage(event.target.value)}
-              placeholder="Type your question..."
-            />
-            <button type="submit">Send</button>
-          </form>
-        </div>
+        </form>
       </main>
     </div>
   );
