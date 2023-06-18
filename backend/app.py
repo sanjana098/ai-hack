@@ -60,16 +60,17 @@ def getChances():
                 {
                     "role": "user",
                     "content": userInput
-                    + "only give chances in percentages in valid python dictionary format (don't include escape characters) { issue: percentage } and nothing else",
+                    + "only give chances in percentages (out of 100%) in valid python dictionary format (don't include escape characters) { issue: percentage } and nothing else",
                 },
             ],
         )
-        # filter = (
-        #     response["choices"][0]["message"]["content"]
-        #     .replace("\n", "")
-        #     .replace("\\", "")
-        # )
-    return {"success": True, "route": "chances", "response": response}
+        filter = (
+            response["choices"][0]["message"]["content"]
+            .replace("\n", "")
+            .replace("\\", "")
+        )
+        print(filter)
+    return {"response": response}
 
 
 # main
