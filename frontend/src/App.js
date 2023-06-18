@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { generateResponse } from "./Utils/actions";
-import PieChart from "./components/PieChart";
+// import PieChart from "./components/PieChart";
 
 const App = () => {
   const [messages, setMessages] = useState([]);
@@ -73,7 +73,11 @@ const App = () => {
             disabled={loading}
             className="px-4 py-2 bg-blue-500 text-white rounded-md disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
-            {loading ? "Loading..." : "Send"}
+            {loading ? (
+              <span class="loading loading-dots loading-md"></span>
+            ) : (
+              "Send"
+            )}
           </button>
         </form>
         {/* <PieChart /> */}
