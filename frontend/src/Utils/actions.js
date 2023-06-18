@@ -3,9 +3,6 @@ const API_URL = "http://127.0.0.1:5000";
 export const mainRoute = () => {
   return fetch(`${API_URL}/`)
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    })
     .catch((error) => {
       console.error(error);
     });
@@ -20,9 +17,6 @@ export const generateResponse = (data) => {
     body: JSON.stringify(data),
   })
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    })
     .catch((error) => {
       console.error(error);
     });
@@ -31,9 +25,6 @@ export const generateResponse = (data) => {
 export const getClinicalTrials = () => {
   return fetch(`${API_URL}/api/clinicalTrials`)
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    })
     .catch((error) => {
       console.error(error);
     });
